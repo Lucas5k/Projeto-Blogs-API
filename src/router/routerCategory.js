@@ -7,5 +7,6 @@ const router = Router();
 router.use(loginController.validateToken);
 
 router.get('/', categoryController.listCategory);
+router.post('/', categoryController.createCategory);
 
 module.exports = router;

@@ -6,6 +6,18 @@ const categoryService = {
 
     return listCategories;
   },
+
+  isValidName: (name) => {
+    if (!name) return { code: 400, message: '"name" is required' };
+    
+    return true;
+  },
+
+  createCategory: async (name) => {
+    const createCategories = await Category.create({ name });
+
+    return createCategories;
+  },
 };
 
 module.exports = categoryService;
