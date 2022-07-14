@@ -10,6 +10,18 @@ app.use(express.json());
 app.use('/login', routerLogin);
 app.use('/user', routerUser);
 // ...
+app.use((err, _req, res, _next) => {
+  const { name, message } = err;
+
+  switch (name) {
+    case 'UnauthorizedError':
+      res.status(401).json({ message });
+      break;
+    default:
+      res.status(500).json({ message });
+      break;
+  }
+});
 
 // É importante exportar a constante `app`,
 // para que possa ser utilizada pelo arquivo `src/server.js`

@@ -16,7 +16,7 @@ const loginService = {
   },
 
   create: async (email, password) => {
-    const createUser = await db.User.create(email, password);
+    const createUser = await db.User.create({ email, password });
     
     const token = jwtCreate.createToken(createUser);
     return token;

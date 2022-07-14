@@ -18,9 +18,7 @@ module.exports = {
         defaultValue: 'lewishamilton@gmail.com'
       },
       password: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        defaultValue: '123456'  
+        type: Sequelize.STRING, 
       },
       image: {
         type: Sequelize.STRING,
