@@ -5,6 +5,10 @@ const loginController = require('../controller/loginController');
 const router = Router();
 
 router.post('/', userController.createUser);
-router.get('/', loginController.validateToken, userController.listUser);
+
+router.use(loginController.validateToken);
+
+router.get('/', userController.listUser);
+router.get('/:id', userController.findUser);
 
 module.exports = router;

@@ -17,6 +17,18 @@ const userController = {
 
     res.status(200).json(list);
   },
+
+  findUser: async (req, res) => {
+    const { id } = req.params;
+
+    const isValid = await userService.isValidId(id);
+
+    if (isValid.message) return res.status(isValid.code).json({ message: isValid.message });
+
+    const findOneUser = await userService.findUser(id);
+
+    res.status(200).json(findOneUser);
+  },
 };
 
 module.exports = userController;

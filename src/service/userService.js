@@ -13,8 +13,6 @@ const userService = {
     if (password.length < 6) {
       return { code: 400, message: '"password" length must be at least 6 characters long' };
     }
-    console.log(email);
-    console.log('estou aqui', isValid);
     if (isValid) return { code: 409, message: 'User already registered' };
 
     return true;
@@ -32,6 +30,20 @@ const userService = {
     const listUser = await User.findAll({ attributes: { exclude: ['password'] } });
 
     return listUser;
+  },
+
+  isValidId: async (id) => {
+    const findOneUser = await User.findByPk(id);
+
+    if (!findOneUser) return { code: 404, message: 'User does not exist' };
+
+    return true;
+  },
+
+  findUser: async (id) => {
+    const findOneUser = await User.findByPk(id, { attributes: { exclude: ['password'] } });
+
+    return findOneUser;
   },
 };
 
