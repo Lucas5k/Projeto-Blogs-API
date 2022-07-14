@@ -11,20 +11,30 @@ module.exports = {
       },
       displayName: {
         type: Sequelize.STRING,
-        allowNull: false,
       },
       email: {
         type: Sequelize.STRING,
         allowNull: false,
+        defaultValue: 'lewishamilton@gmail.com'
       },
       password: {
         type: Sequelize.STRING,
-        allowNull: false,     
+        allowNull: false,
+        defaultValue: '123456'  
       },
       image: {
         type: Sequelize.STRING,
-        allowNull: false
-      }
+      },
+      createdAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.literal('current_timestamp()')
+      },
+      updatedAt: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.literal('current_timestamp()')
+      },
     });
   },
 
