@@ -1,5 +1,5 @@
 const createBlogPost = (sequelize, DataTypes) => {
-  const BlogPost = sequelize.define('BlogPost', {
+  const BlogPosts = sequelize.define('BlogPost', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -18,17 +18,15 @@ const createBlogPost = (sequelize, DataTypes) => {
       type: 'TIMESTAMP',
       defaultValue: sequelize.literal('current_timestamp()'),
     }
-  }, {
-    timestamps: true,
   });
 
-  BlogPost.associate = (models) => {
-    BlogPost.belongsTo(models.User, {
-      foreignKey: 'UserId', as: 'Users', 
+  BlogPosts.associate = (models) => {
+    BlogPosts.belongsTo(models.User, {
+      foreignKey: 'userId', as: 'user', 
     });
   };
 
-  return BlogPost;
+  return BlogPosts;
 };
 
 module.exports = createBlogPost;

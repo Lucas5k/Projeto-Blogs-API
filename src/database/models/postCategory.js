@@ -8,17 +8,25 @@ const createPostCategory = (sequelize, DateTypes) => {
       primaryKey: true,
       type: DateTypes.INTEGER,
     },
+    // createdAt: {
+    //   type: 'TIMESTAMP',
+    //   defaultValue: sequelize.literal('current_timestamp()'),
+    // },
+    // updatedAt: {
+    //   type: 'TIMESTAMP',
+    //   defaultValue: sequelize.literal('current_timestamp()'),
+    // }
   });
 
   PostCategory.associate = (models) => {
     models.BlogPost.belongsToMany(models.Category, {
-      as: 'Categories',
+      as: 'categories',
       through: PostCategory,
       foreignKey: 'postId',
       otherKey: 'categoryId',
     });
     models.Category.belongsToMany(models.BlogPost, {
-      as: 'BlogPosts',
+      as: 'blogPosts',
       through: PostCategory,
       foreignKey: 'categoryId',
       otherKey: 'postId',
