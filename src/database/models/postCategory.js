@@ -8,14 +8,6 @@ const createPostCategory = (sequelize, DateTypes) => {
       primaryKey: true,
       type: DateTypes.INTEGER,
     },
-    // createdAt: {
-    //   type: 'TIMESTAMP',
-    //   defaultValue: sequelize.literal('current_timestamp()'),
-    // },
-    // updatedAt: {
-    //   type: 'TIMESTAMP',
-    //   defaultValue: sequelize.literal('current_timestamp()'),
-    // }
   });
 
   PostCategory.associate = (models) => {

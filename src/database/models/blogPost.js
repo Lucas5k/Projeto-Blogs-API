@@ -9,6 +9,7 @@ const createBlogPost = (sequelize, DataTypes) => {
     userId: {
       type: DataTypes.INTEGER,
       foreignKey: true,
+      defaultValue: '1',
     },
     published: {
       type: 'TIMESTAMP',
