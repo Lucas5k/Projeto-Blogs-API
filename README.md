@@ -32,7 +32,7 @@ cd Projeto-Blogs-API
 npm install
 
 - Inicialize o projeto
-npm start
+docker-compose up -d --build
 
 ```
 
