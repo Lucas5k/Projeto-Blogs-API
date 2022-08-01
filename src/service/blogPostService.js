@@ -21,27 +21,12 @@ const blogPostService = {
     return listBlogs;
   },
 
-  // isValidData: async (title, content, categoryIds) => {
-  //   const { rows } = await db.BlogPost.findAndCountAll({
-  //     include: { model: db.Category, as: 'categories', where: { id: categoryIds } },
-  //   });
+  createBlog: async (title, content, categoryIds) => {
+    const createBlogs = await db.BlogPost.bulkCreate([{ title, content, categoryIds }]);
+    console.log(createBlogs);
 
-  //   if (!title || !content || !categoryIds) {
-  //     return { code: 400, message: 'Some required fields are missing' };
-  //   }
-
-  //   if (rows.length < 1) {
-  //     return { code: 400, message: '"categoryIds" not found' };
-  //   }
-
-  //   return true;
-  // },
-
-  // createBlog: async (title, content, categoryIds) => {
-  //   const createBlogs = await db.BlogPost.bulkCreate([{ title, content, categoryIds }]);
-
-  //   return createBlogs;
-  // },
+    return createBlogs;
+  },
 
   isValidID: async (id) => {
     const findID = await db.BlogPost.findByPk(id);

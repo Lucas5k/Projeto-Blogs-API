@@ -17,8 +17,6 @@ const loginController = {
   validateToken: (req, _res, next) => {
     const { authorization } = req.headers;
 
-    // const isValidToken = jwtServices.isValidToken(authorization);
-
     jwtServices.validateToken(authorization);
 
     return next();

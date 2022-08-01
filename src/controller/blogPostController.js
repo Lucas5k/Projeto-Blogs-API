@@ -6,17 +6,13 @@ const blogPostController = {
 
     return res.status(200).json(listBlogs);
   },
-  // createBlog: async (req, res) => {
-  //   const { title, content, categoryIds } = req.body;
+  createBlog: async (req, res) => {
+   const { title, content, categoryIds } = req.body;
 
-  //   // const isValid = await blogPostService.isValidData(title, content, categoryIds);
+    const createBlogs = await blogPostService.createBlog(title, content, categoryIds);
 
-  //   // if (isValid.message) return res.status(isValid.code).json({ message: isValid.message });
-
-  //   const createBlogs = await blogPostService.createBlog(title, content, categoryIds);
-
-  //   res.status(201).json(createBlogs);
-  // },
+    res.status(201).json(createBlogs);
+  },
 
   listBlogId: async (req, res) => {
     const { id } = req.params;
