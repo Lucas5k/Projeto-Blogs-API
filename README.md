@@ -1,7 +1,7 @@
 # Projeto-Blogs-API
 
 ## :memo: Descrição
-Sexto projeto no modúlo de back-end, Nesse projeto desenvolvi uma Api e um banco de dados para a produção de conteúdo para um blog.
+Sexto projeto no módulo de back-end, Nesse projeto desenvolvi uma Api e um banco de dados para a produção de conteúdo para um blog.
 Usei conhecimentos aprendidos sobre ORM, O ORM provê uma maneira de alterar e interagir com um banco de dados através de código JavaScript. A partir dele, é possível criar e alterar tabelas, realizar consultas, inserir e extrair dados do banco, tudo isso apenas escrevendo código JavaScript.
 E por último e não menos importante usei o JWT para gerar Tokens a partir de informações como login e senha;
 
